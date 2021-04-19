@@ -38,11 +38,14 @@ const sendGetRequest = function () {
 				a.rating < b.rating ? -1 : a.rating > b.rating ? 1 : 0);
 			
 			const firstTen = gifs.slice(0, 10);
+			let counter = 1;
 			for (const gif of firstTen) {
-				const file = fs.createWriteStream(`gifs/${gif.id}.gif`);
+				const file = fs.createWriteStream(`website/gifs/${counter}.gif`);
 				const request = https.get(gif.url, function (response) {
 					response.pipe(file);
 				})
+				
+				counter++;
 			}
 			
 			console.log('Done');
@@ -50,4 +53,3 @@ const sendGetRequest = function () {
 	});
 }
 sendGetRequest();
-
