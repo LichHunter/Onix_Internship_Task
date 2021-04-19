@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "filesaver": "^0.0.13",
+    "fs": "*",
     "request": "^2.88.2"
   }
 }
